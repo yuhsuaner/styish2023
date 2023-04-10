@@ -1,0 +1,7 @@
+class Product {
+    final String productName;
+    final int productCode;
+    final int price;
+    final String color;
+    final String size;
+}
