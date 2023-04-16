@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:stylish2023/Page/home_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +16,8 @@ class MyApp extends StatelessWidget {
                 primary: Color.fromRGBO(255, 255, 255, 1),
               )),
       title: 'Flutter App',
-      home: MyHomePage(title: 'Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(),
     );
   }
 }
