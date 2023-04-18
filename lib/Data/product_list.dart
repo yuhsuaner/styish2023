@@ -38,8 +38,9 @@ class Product {
         .map((e) => Color.fromJson(e))
         .toList();
 
-    List<Variant> variantsList =
-        (json['variants'] as List<dynamic>).map((e) => Variant.fromJson(e)).toList();
+    List<Variant> variantsList = (json['variants'] as List<dynamic>)
+        .map((e) => Variant.fromJson(e))
+        .toList();
 
     return Product(
       id: json['id'] as int,
@@ -56,7 +57,8 @@ class Product {
       sizes: (json['sizes'] as List<dynamic>).map((e) => e as String).toList(),
       variants: variantsList,
       mainImage: json['main_image'] as String,
-      images: (json['images'] as List<dynamic>).map((e) => e as String).toList(),
+      images:
+          (json['images'] as List<dynamic>).map((e) => e as String).toList(),
     );
   }
 }
