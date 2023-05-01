@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stylish2023/Constants/colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:stylish2023/Data/product_list.dart';
+import 'package:flutter/services.dart';
+import 'dart:async';
 
 class DetailPage extends StatefulWidget {
   final Product catalogItem;
@@ -14,6 +16,24 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   int _quantity = 1;
+
+  static const platform = MethodChannel('test_tappay');
+
+  String _tappayMessage = 'Press the button to get a native string';
+
+  Future<void> _inputCreditCard() async {
+    String message;
+
+    try {
+      message = await platform.invokeMethod('getPrime');
+    } on PlatformException catch (e) {
+      message = "失敗 string: '${e.message}'.";
+    }
+
+    setState(() {
+      _tappayMessage = message;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -191,7 +211,10 @@ class _DetailPageState extends State<DetailPage> {
                   style: FilledButton.styleFrom(
                     backgroundColor: Colors.brown,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    /// Go to Tappay Page
+                    _inputCreditCard;
+                  },
                   child: const Text(
                     '請選擇尺寸',
                     style: TextStyle(fontSize: 16),
@@ -199,6 +222,7 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ),
             ),
+            Text(_tappayMessage),
             SizedBox(height: 10),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),

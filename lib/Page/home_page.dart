@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stylish2023/Constants/colors.dart';
+import 'package:stylish2023/Page/cart_page.dart';
 import 'package:stylish2023/Page/product_detail_page.dart';
 import 'package:stylish2023/Data/product_list.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -67,6 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
           icon: Icon(Icons.shopping_cart),
           onPressed: () {
             // pressed shopping cart
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CartPage(),
+              ),
+            );
           },
         ),
       ],
