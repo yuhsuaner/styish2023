@@ -5,6 +5,7 @@ import 'package:stylish2023/Page/cart_page.dart';
 import 'package:stylish2023/Page/product_detail_page.dart';
 import 'package:stylish2023/Data/product_list.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:stylish2023/Page/webrtc_page.dart';
 import 'package:stylish2023/bloc/product_data_bloc.dart';
 import 'package:stylish2023/resources/api-repository.dart';
 
@@ -65,7 +66,24 @@ class _MyHomePageState extends State<MyHomePage> {
           Image.asset('images/STYLiSH_Logo.png', fit: BoxFit.cover, height: 20),
       actions: [
         IconButton(
-          icon: Icon(Icons.shopping_cart),
+          icon: Icon(
+            Icons.tv,
+            color: Colors.grey,
+          ),
+          onPressed: () {
+            // pressed WebRTC
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WebRTCPage(),
+                ));
+          },
+        ),
+        IconButton(
+          icon: Icon(
+            Icons.shopping_cart,
+            color: Colors.grey,
+          ),
           onPressed: () {
             // pressed shopping cart
             Navigator.push(

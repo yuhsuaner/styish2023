@@ -19,6 +19,13 @@ dependencies:
   cached_network_image: ^3.2.3
   http: ^0.13.5
 
+  ## For Practice WebRTC
+  # https://pub.dev/packages/flutter_webrtc
+  flutter_webrtc: ^0.9.29+hotfix.1
+  cloud_firestore: ^4.5.3
+  firebase_core: ^2.10.0
+  firebase_auth: ^4.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
